@@ -57,7 +57,7 @@ namespace connect.Controllers
         public JsonResult Singin()
         {
             List<test> users = new List<test>();
-            using (var connection = new SqliteConnection("Data Source=D:\\sqlite\\API.db"))
+            using (var connection = new SqliteConnection("Data Source=C:\\Users\\solom\\source\\repos\\connect\\API.db"))
             {
                 connection.Open();
                 
