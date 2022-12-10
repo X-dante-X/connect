@@ -20,15 +20,21 @@ function App() {
     console.log(email)
   }
   const handleSignIn = () =>{
-    if(password>0 && email.length>0)
-    {
-      fetch(variables.API_URL)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-    }
-    else{
-      console.log("Login Error")
-    }
+      fetch(variables.API_URL, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(response => response.forEach(data => {
+
+      if((data.password == password) && (data.login == email))
+      {
+        console.log(data.password)
+        console.log(password)
+        setUser(data)
+        console.log("zalogowano! ")
+        console.log(data)
+      }
+    }))
   }
   return (
     <div>

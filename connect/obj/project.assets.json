@@ -10738,6 +10738,7 @@
       "Microsoft.Data.SqlClient >= 5.0.1",
       "Microsoft.Data.Sqlite >= 7.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.11",
+      "Microsoft.EntityFrameworkCore.Relational >= 6.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.11",
@@ -10747,24 +10748,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\solom\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\48734\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\solom\\source\\repos\\connect\\connect\\connect.csproj",
+      "projectUniqueName": "C:\\Users\\48734\\Documents\\GitHub\\connect\\connect\\connect.csproj",
       "projectName": "connect",
-      "projectPath": "C:\\Users\\solom\\source\\repos\\connect\\connect\\connect.csproj",
-      "packagesPath": "C:\\Users\\solom\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\solom\\source\\repos\\connect\\connect\\obj\\",
+      "projectPath": "C:\\Users\\48734\\Documents\\GitHub\\connect\\connect\\connect.csproj",
+      "packagesPath": "C:\\Users\\48734\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\48734\\Documents\\GitHub\\connect\\connect\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\solom\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\48734\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10772,7 +10768,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10800,6 +10795,10 @@
             "version": "[7.0.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.11, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[6.0.11, )"
           },
@@ -10849,7 +10848,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

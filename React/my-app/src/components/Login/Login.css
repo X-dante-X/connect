@@ -36,6 +36,7 @@
     box-shadow: 0px 4px 30px rgba(201, 109, 244, 0.5);
     border: none;
     background: linear-gradient(131.57deg, #9462E5 -13.69%, #C96DF4 105.02%);
+    cursor: pointer;
 }
 .login_main_right_form label{
     color: #818181;
