@@ -10,17 +10,7 @@ using System.Collections;
 
 namespace connect.Controllers
 {
-    public class test
-    { 
-        public string Login { get; set; }   
-        public string Password { get; set; }
-
-        public test(string login, string password) 
-        {
-            Login = login;
-            Password = password;    
-        }   
-    }
+    
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
@@ -32,22 +22,20 @@ namespace connect.Controllers
         }
 
         [HttpGet]
-        public JsonResult Singin()
+        public JsonResult Singup(UserSignup user)
         {
             ArrayList users = new ArrayList();
-            using (var connection = new SqliteConnection("Data Source=C:\\Users\\48734\\Desktop\\api.db"))
+            string connectionString = _configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
                 
                 var command = connection.CreateCommand();
-                command.CommandText = $"SELECT email, password FROM users";
+                command.CommandText = $"INSERT INTO users (user_login, user_password,user_email) VALUES('{user.UserLogin}','{user.UserPassword}','{user.UserEmail}');";
 
                 using (var reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
-                    {
-                        users.Add(new test(reader.GetString(0), reader.GetString(1)));
-                    }
+
                 }
                 connection.Close();
             }

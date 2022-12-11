@@ -2,7 +2,7 @@
 
 namespace connect.Models
 {
-    public class User
+    public class UserSignup
     {
         [Required(ErrorMessage = "login")]
         [MinLength(4,ErrorMessage ="Min Lenght 4")]
