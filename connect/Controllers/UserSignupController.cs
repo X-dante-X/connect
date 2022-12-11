@@ -13,10 +13,10 @@ namespace connect.Controllers
     
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UserSignupController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public UsersController(IConfiguration configuration)
+        public UserSignupController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
