@@ -3,7 +3,8 @@ import './App.css';
 import {useState} from 'react'
 import Login from './components/Login/Login'
 import { variables } from './Variables';
-
+import axios from 'react'
+import { useEffect } from 'react';
 function App() {
   const [user, setUser] = useState(null)
   const [password, setPassword] = useState('')
@@ -19,22 +20,25 @@ function App() {
     setEmail(event.target.value)
     console.log(email)
   }
-  const handleSignIn = () =>{
-      fetch(variables.API_URL, {
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(response => response.forEach(data => {
-
-      if((data.password == password) && (data.login == email))
-      {
-        console.log(data.password)
-        console.log(password)
-        setUser(data)
-        console.log("zalogowano! ")
-        console.log(data)
-      }
-    }))
+  const handleSignIn = async() =>{
+    const recordBodyParameters = {
+      'userLogin': email,
+      'userPassword': password
+    }
+  
+    const options = {
+      method: 'POST',
+      headers: {
+        'accept': '*/*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recordBodyParameters)
+    }
+  
+    const response = await fetch('https://localhost:7226/api/UserSignin', options);
+    const jsonResponse = await response.json();
+    console.log(jsonResponse[0])
+    return jsonResponse;
   }
   return (
     <div>

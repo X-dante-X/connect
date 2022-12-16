@@ -19,7 +19,6 @@ namespace connect.Models
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "password")]
-        [Compare(otherProperty:"password",ErrorMessage = "different passwords")]
         [MinLength(4, ErrorMessage = "Min Lenght 4")]
         [MaxLength(24, ErrorMessage = "Max Lenght 24")]
         public string UserConfirmPassword { get; set; }

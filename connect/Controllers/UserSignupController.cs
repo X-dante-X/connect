@@ -7,39 +7,29 @@ using System.Data;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections;
+using Microsoft.AspNetCore.Cors;
 
 namespace connect.Controllers
 {
     
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UserSignupController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        public UsersController(IConfiguration configuration)
+        [EnableCors("AllowOrigin")]
+        [HttpPost]
+        public async Task<JsonResult> Singup(UserSignup user)
         {
-            _configuration = configuration;
-        }
-
-        [HttpGet]
-        public JsonResult Singup(UserSignup user)
-        {
-            ArrayList users = new ArrayList();
-            string connectionString = _configuration.GetConnectionString("DefaultConnection");
-            using (var connection = new SqliteConnection(connectionString))
+            bool good = false;
+            using (var connection = new SqliteConnection("Data Source = C:\\Users\\48734\\Documents\\GitHub\\connect\\API.db"))
             {
                 connection.Open();
-                
                 var command = connection.CreateCommand();
-                command.CommandText = $"INSERT INTO users (user_login, user_password,user_email) VALUES('{user.UserLogin}','{user.UserPassword}','{user.UserEmail}');";
-
-                using (var reader = command.ExecuteReader())
-                {
-
-                }
+                command.CommandText = $"INSERT INTO users ( user_login, user_password,user_email ) VALUES('{user.UserLogin}','{user.UserPassword}','{user.UserEmail}' );";
+                command.ExecuteNonQuery();
                 connection.Close();
             }
-            return new JsonResult(users);
+            return new JsonResult(true);
         }
 
     }
